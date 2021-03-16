@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Gerentes from '../views/Gerentes.vue'
 import Home from '../views/Home.vue'
 import NovoUsuario from '../views/NovoUsuario.vue'
-
+import Login from '../views/Login.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -21,7 +21,13 @@ const routes = [
     path: '/cadastro',
     name: 'novo.usuario',
     component: NovoUsuario
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
   }
+
 ]
 
 const router = new VueRouter({

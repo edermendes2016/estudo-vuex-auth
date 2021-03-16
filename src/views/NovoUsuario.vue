@@ -8,7 +8,7 @@
       </div>
       <div class="form.group">
         <label for="email">E-mail</label>
-        <input type="email" class="form-control" v-model="usuario.email"/>
+        <input type="email" class="form-control" v-model="usuario.email" />
       </div>
       <div class="form.group">
         <label for="senha">Senha</label>
@@ -22,23 +22,25 @@
 <script>
 import axios from "axios";
 export default {
-
-  data: function() {
+  data: function () {
     return {
       usuario: {
         nome: "",
         senha: "",
-        email: ""
-      }
-    }
+        email: "",
+      },
+    };
   },
   methods: {
     enviarFormulario() {
       axios
         .post("http://localhost:8000/auth/register", this.usuario)
-        .then(resposta => console.log(resposta))
-        .catch(erro => console.log(erro))
-    }
-  }
+        .then((resposta) => {
+          console.log(resposta)
+          this.$router.push({ name: "login" });
+        })
+        .catch((erro) => console.log(erro));
+    },
+  },
 };
 </script>
